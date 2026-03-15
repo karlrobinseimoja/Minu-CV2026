@@ -51,13 +51,32 @@
             color: #fff;
         }
 
+        .pdf-buttons {
+            margin: 15px 0;
+            text-align: right;
+        }
+        .pdf-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #c2b0b0;
+            color: var(--body-font);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .pdf-button:hover {
+            background-color: #818181;
+        }
+
         header {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 20px;
             margin-bottom: 30px;
-            border-bottom: 2px solid #999;
+            border-bottom: 1px solid #000000;
             padding-bottom: 20px;
         }
         header h1 { font-family: var(--heading-font); font-weight: 700; font-size: 2.5rem; grid-column: 1; }
@@ -78,22 +97,30 @@
                 "expectations expectations";
         }
         .education { grid-area: education; }
-        .languages { grid-area: languages; border-top: 2px solid #999; padding-top: 20px; }
+        .languages { grid-area: languages; border-top: 1px solid #000000; padding-top: 20px; }
         .work-experience { grid-area: work; }
-        .skills { grid-area: skills; border-top: 2px solid #999; padding-top: 25px; margin-top: 25px; }
-        .about-me { grid-area: about; border-top: 2px solid #999; padding-top: 25px; margin-top: 25px; }
+        .skills { grid-area: skills; border-top: 1px solid #000000; padding-top: 25px; margin-top: 25px; }
+        .about-me { grid-area: about; padding-top: 25px; margin-top: 25px; }
         .expectations { grid-area: expectations; }
 
         .main-title { font-family: var(--heading-font); font-weight: 700; font-size: 1.8rem; margin-bottom: 1rem; }
         h2, h3 { margin-bottom: 8px; }
         p { margin-bottom: 12px; font-family: var(--body-font); font-size: 1.15rem; }
-        .work1, .work2 { border-bottom: 1px solid #777; padding-bottom: 4px; margin-bottom: 6px; display: inline-block; }
+        .work1, .work2 { border-bottom: 1px solid #000000; padding-bottom: 4px; margin-bottom: 6px; display: inline-block; }
 
         footer {
-            border-top: 2px solid #999;
+            border-top: 1px solid #000000;
             margin-top: 30px;
             padding-top: 20px;
             text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
         .contact-links-list {
@@ -103,10 +130,25 @@
             margin-bottom: 5rem;
             margin-top: 5rem;
         }
+
+        .contact-links-list li a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #c2b0b0;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-links-list li a:hover {
+            background-color: #818181;
+        }
         
         .work-title {
             display: inline-block;
-            border-bottom: 1px solid #777;
+            border-bottom: 1px solid #000000;
             padding-bottom: 3px;
             margin-bottom: 10px;
         }
@@ -115,7 +157,7 @@
 
         
         .contact-links-list li { display: inline-block; margin: 0; }
-        .contact-links-list li a { text-decoration: none; font-family: var(--body-font); color: var(--primary-color); font-size: 1.25rem; }
+        .contact-links-list li a { text-decoration: none; font-family: var(--body-font); color: var(--primary-color); }
 
         @media (max-width: 800px) {
             .container { width: 95%; margin: 20px auto; padding: 20px; }
@@ -128,7 +170,155 @@
             .main-title { font-size: 1.4rem; }
             p { font-size: 1rem; }
             .contact-links-list { grid-template-columns: 1fr; gap: 15px; }
+
+            .footer-container {
+                flex-direction: column; 
+                align-items: center;    
+                gap: 10px;
+            }
         }
+
+        @media print {
+            body {
+                background: white;
+                font-size: 13px;
+                line-height: 1.35;
+                margin: 0;
+            }
+            .container {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 10px; 
+                border-radius: 0;
+                box-shadow: none;
+                background: white;
+            }
+            
+            .lang-switcher {
+                display: none;
+            }
+
+            .pdf-buttons {
+                display: none;
+            }
+            
+            footer {
+                display: none;
+            }
+            
+            header {
+                gap: 10px;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+            header h1 {
+                font-size: 40px;
+            }
+            .andmed {
+                font-size: 14px;
+                gap: 4px;
+            }
+            .image-container img {
+                width: 160px;
+                height: 160px;
+            }
+            .main {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                margin-top: 0;
+                 
+            }
+
+            .main > div {
+                display: block;
+                
+            }
+            
+            .main-title {
+                font-size: 26px;
+                margin-bottom: 6px;
+            }
+            
+            h3 {
+                font-size: 18px;
+            }
+            
+            p {
+                font-size: 16px;
+                margin-bottom: 6px;
+                line-height: 1.3;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .education {
+                grid-column: 1;
+            }
+
+            .languages {
+                grid-column: 1;
+            }
+
+            .work-experience {
+                grid-column: 2;
+            }
+
+            .skills, 
+            .about-me, 
+            .expectations, 
+            .languages, 
+            .education, 
+            .oskused, 
+            .work-experience {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                
+            }
+
+            
+
+            .skills {
+                margin-bottom: 0;
+            }
+
+
+
+            .about-me {
+                margin-top: 0;
+            }
+            
+            .skills,
+            .about-me,
+            .expectations,
+            .languages,
+            .education,
+            .oskused,
+            .work-experience {
+                page-break-inside: avoid;
+            }
+
+            .main > div {
+                page-break-before: avoid;
+                page-break-after: avoid;
+            }
+            
+            
+
+    
+        }
+
+       
+
+
+
     </style>
 </head>
 <body>
@@ -185,14 +375,13 @@
 
         <div class="skills">
             <h2 class="main-title" id="skills-title">OSKUSED</h2>
-            <p id="skills-text">MS Excel, MS Word, MS Power Point, Autodesk (AutoCAD, Fusion), Solid Edge, ABB RobotStudio, Visual Components, Siemens TIA Portal, müügioskus, suhtlemisoskus, kuulamisoskus</p>
+            <p id="skills-text">MS Excel, MS Word, MS Power Point, Autodesk (AutoCAD, Fusion), Solid Edge, ABB RobotStudio, Visual Components, Siemens TIA Portal, Visual Studio Code (html, css, javascript), müügioskus, suhtlemisoskus, kuulamisoskus</p>
         </div>
 
         <div class="about-me">
             <h2 class="main-title" id="about-title">MINUST</h2>
-            <p id="about1">Olen motiveeritud ja sihikindel inimene, kes usub, et pühendumuse ja järjepideva tööga on võimalik saavutada väga häid tulemusi. Viimaste aastate jooksul olen enda kohta väga palju õppinud ning aru saanud, et ma suudan tegelikult palju rohkem, kui ma esialgu arvan. Mulle meeldib omandada uusi kogemusi ja oskusi, mis aitavad just minu enda arengule kaasa, iga uus oskus avab uue võimaluse.</p>
-            <p id="about2">Terve enda elu olen tegelenud arvutitega, tänu millele suudan väga kiiresti kohaneda uute programmidega ning oskan võtta kasutusele ka enda vanu teadmisi. Pean oluliseks ka enesearengut ja oma nõrkuste parandamist. Peamine põhjus miks ma ühinesin Southwestern Advantage programmiga oli see, et ma tahtsin enda suhtlemisoskust arendada.</p>
-            <p id="about3">Füüsiline vorm ja tervis on väga hea, juhiload ning auto on olemas.</p>
+            <p id="about1">Olen motiveeritud ja uudishimulik robotitehnika eriala üliõpilane, kellel on tugev huvi inseneeria ja tehniliste lahenduste arendamise vastu. Mulle meeldib omandada uusi oskusi, lahendada keerukaid probleeme ning arendada oma teadmisi nii teoorias kui ka praktikas. Varasem kogemus arvutite ja tehnoloogia valdkonnas on õpetanud mind kiiresti kohanema ja analüütiliselt mõtlema.</p>
+            <p id="about2">Füüsiline vorm ja tervis on väga hea, juhiload ning auto on olemas.</p>
         </div>
 
         <div class="expectations">
@@ -203,9 +392,13 @@
     </section>
 
     <footer>
-        <ul class="contact-links-list">
-            <li><a href="#" id="footerlink">kontakt</a></li>
-        </ul>
+        <div class="footer-container">
+            <a href="pdf/KarlRobinSeimojaESTCV2026.pdf" class="pdf-button left" download>Download PDF (Estonian)</a>
+            <ul class="contact-links-list">
+                <li><a href="#" id="footerlink">Kontakt</a></li>
+            </ul>
+            <a href="pdf/KarlRobinSeimojaENGCV2026.pdf" class="pdf-button right" download>Download PDF (English)</a>
+        </div>
         <div id="copyright">2026 &#169;</div>
     </footer>
 </div>
@@ -240,11 +433,10 @@ const texts = {
         work2Text1: "2D jooniste põhjal ridaelamu 3D mudeli loomine programmis AutoCAD.",
         work2Text2: "Hoone visualiseerimine erinevatest vaadetest vastavalt etteantud joonistele.",
         skillsTitle: "OSKUSED",
-        skillsText: "MS Excel, MS Word, MS Power Point, Autodesk (AutoCAD, Fusion), Solid Edge, ABB RobotStudio, Visual Components, Siemens TIA Portal, müügioskus, suhtlemisoskus, kuulamisoskus",
+        skillsText: "MS Excel, MS Word, MS Power Point, Autodesk (AutoCAD, Fusion), Solid Edge, ABB RobotStudio, Visual Components, Siemens TIA Portal, Visual Studio Code (html, css, javascript), müügioskus, suhtlemisoskus, kuulamisoskus.",
         aboutTitle: "MINUST",
-        about1: "Olen motiveeritud ja sihikindel inimene, kes usub, et pühendumuse ja järjepideva tööga on võimalik saavutada väga häid tulemusi. Viimaste aastate jooksul olen enda kohta väga palju õppinud ning aru saanud, et ma suudan tegelikult palju rohkem, kui ma esialgu arvan. Mulle meeldib omandada uusi kogemusi ja oskusi, mis aitavad just minu enda arengule kaasa, iga uus oskus avab uue võimaluse.",
-        about2: "Terve enda elu olen tegelenud arvutitega, tänu millele suudan väga kiiresti kohaneda uute programmidega ning oskan võtta kasutusele ka enda vanu teadmisi. Pean oluliseks ka enesearengut ja oma nõrkuste parandamist. Peamine põhjus miks ma ühinesin Southwestern Advantage programmiga oli see, et ma tahtsin enda suhtlemisoskust arendada.",
-        about3: "Füüsiline vorm ja tervis on väga hea, juhiload ning auto on olemas.",
+        about1: "Olen motiveeritud ja uudishimulik robotitehnika eriala üliõpilane, kellel on tugev huvi inseneeria ja tehniliste lahenduste arendamise vastu. Mulle meeldib omandada uusi oskusi, lahendada keerukaid probleeme ning arendada oma teadmisi nii teoorias kui ka praktikas. Varasem kogemus arvutite ja tehnoloogia valdkonnas on õpetanud mind kiiresti kohanema ja analüütiliselt mõtlema.",
+        about2: "Füüsiline vorm ja tervis on väga hea, juhiload ning auto on olemas.",
         expTitle: "OOTUSED",
         exp1: "Otsin praktikakohta, kus ma saaksin enda insenerioskuseid arendada.",
         exp2: "Praktikakoht võiks olla tasustatud.",
@@ -263,8 +455,8 @@ const texts = {
         edu2Text: "Secondary education",
         langTitle: "LANGUAGES",
         lang1: "Estonian: native",
-        lang2: "English: B2-good",
-        lang3: "Russian: B1-intermediate",
+        lang2: "English: very good",
+        lang3: "Russian: intermediate",
         workTitle: "WORK EXPERIENCE",
         work1Title: "Sales Representative",
         work1Time: "01.2025-08.2025",
@@ -278,19 +470,18 @@ const texts = {
         work2Text1: "Created a 3D model of a terraced house in AutoCAD based on 2D drawings.",
         work2Text2: "Visualized the building from different views according to the drawings.",
         skillsTitle: "SKILLS",
-        skillsText: "MS Excel, MS Word, MS Power Point, Autodesk (AutoCAD, Fusion), Solid Edge, ABB RobotStudio, Visual Components, Siemens TIA Portal, sales skills, communication skills, listening skills",
+        skillsText: "MS Excel, MS Word, MS Power Point, Autodesk (AutoCAD, Fusion), Solid Edge, ABB RobotStudio, Visual Components, Siemens TIA Portal, Visual Studio Code (html, css, javascript), sales skills, communication skills, listening skills.",
         aboutTitle: "ABOUT ME",
-        about1: "I know that I can handle anything if I genuinely try. Over the past few years, I have learned a lot about myself and realized that I am capable of much more than I previously thought. I enjoy gaining new experiences and skills that contribute to my personal development, every new skill opens up new opportunities.",
-        about2: "Throughout my life I have worked with computers, which allows me to adapt quickly to new software and also apply skills I have already learned. I like improving my weaknesses, the main reason I joined the Southwestern Advantage program was because I  wanted to develop my communication skills.",
-        about3: "My physical fitness and health are very good, I have a driver’s license and a car.",
+        about1: "I am a motivated and curious Robotics student with a strong interest in engineering and developing technical solutions. I enjoy acquiring new skills, solving complex problems, and expanding my knowledge both in theory and in practice. My previous experience in computers and technology has taught me to adapt quickly and think analytically.",
+        about2: "My physical fitness and health are very good, I have a driver’s license and a car.",
         expTitle: "EXPECTATIONS",
         exp1: "Looking for an internship where I can develop my engineering skills.",
         exp2: "The internship should preferably be paid.",
-        footerlink: "contact me"
+        footerlink: "Contact me"
     }
 };
 
-// SWITCH LANGUAGE FUNCTION
+
 function switchLanguage(lang) {
     for (const key in texts[lang]) {
         const el = document.getElementById(key) || document.getElementById(key.replace(/[A-Z]/g, m => "-" + m.toLowerCase()));
@@ -306,6 +497,8 @@ function switchLanguage(lang) {
         document.getElementById('btn-en').classList.add('active');
     }
 }
+
+
 
 document.getElementById('btn-et').addEventListener('click', () => switchLanguage('et'));
 document.getElementById('btn-en').addEventListener('click', () => switchLanguage('en'));
